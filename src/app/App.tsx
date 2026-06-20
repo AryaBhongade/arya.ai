@@ -123,6 +123,8 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [showProjectModal, setShowProjectModal] = useState(false);
 
+  const [showComingSoon, setShowComingSoon] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSent(true);
@@ -222,7 +224,7 @@ export default function App() {
               />
             </div>
             <div className="absolute -top-2 -right-2 bg-yellow-300 rounded-full w-8 h-8 flex items-center justify-center text-lg border-2 border-white shadow">
-              🦋
+            ꫂ᭪݁
             </div>
           </div>
 
@@ -238,7 +240,7 @@ export default function App() {
             style={{ fontFamily: "'Caveat', cursive", fontSize: "clamp(3rem, 8vw, 5.5rem)", fontWeight: 700, lineHeight: 1.1, color: "var(--foreground)" }}
             className="mb-5"
           >
-            Arya Bhongade
+            Arya ؛༊
           </h1>
 
           <p
@@ -283,7 +285,7 @@ export default function App() {
                 cursor: "pointer",
               }}
             >
-              Resume 📄
+              Resume ✧
             </motion.button>
           </div>
         </motion.div>
@@ -359,7 +361,7 @@ export default function App() {
               style={{ fontFamily: "'Caveat', cursive", fontSize: "3rem", fontWeight: 700, color: "var(--foreground)" }}
               className="mb-2"
             >
-              about me
+              about me 𖹭
             </h2>
             <Squiggle color="#7dd4b0" className="mb-6" />
             <p style={{ lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1rem" }}>
@@ -400,7 +402,7 @@ export default function App() {
               style={{ fontFamily: "'Caveat', cursive", fontSize: "3rem", fontWeight: 700 }}
               className="mb-2"
             >
-              my projects 🛠️
+              my projects ʚɞ
             </h2>
             <Squiggle color="#c5b8f5" className="mx-auto" />
             <p className="mt-4" style={{ color: "var(--muted-foreground)" }}>
@@ -821,10 +823,11 @@ export default function App() {
                 GitHub 💻
               </a>
 
-              <a
-                href={selectedProject.demo || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  setShowProjectModal(false);
+                  setShowComingSoon(true);
+                }}
                 className="px-6 py-3 rounded-2xl"
                 style={{
                   background: "var(--card)",
@@ -834,10 +837,11 @@ export default function App() {
                   fontFamily: "'Caveat', cursive",
                   fontSize: "1.3rem",
                   fontWeight: 700,
+                  cursor: "pointer",
                 }}
               >
                 Demo Video 🎥
-              </a>
+              </button>
 
             </div>
 
@@ -857,6 +861,65 @@ export default function App() {
           </motion.div>
         </div>
       )}
+
+      {showComingSoon && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50"
+          style={{
+            background: "rgba(0,0,0,0.35)",
+          }}
+          onClick={() => setShowComingSoon(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            onClick={(e) => e.stopPropagation()}
+            className="p-8 rounded-3xl text-center max-w-sm w-full mx-4"
+            style={{
+              background: "var(--card)",
+              border: "3px solid var(--border)",
+              boxShadow: "6px 6px 0 var(--border)",
+            }}
+          >
+            <h2
+              style={{
+                fontFamily: "'Caveat', cursive",
+                fontSize: "2rem",
+                fontWeight: 700,
+              }}
+            >
+              Coming Soon 🚀
+            </h2>
+
+            <p
+              className="mt-3 mb-6"
+              style={{
+                color: "var(--muted-foreground)",
+              }}
+            >
+              Demo video for this project
+              will be available soon.
+            </p>
+
+            <button
+              onClick={() => setShowComingSoon(false)}
+              className="px-6 py-3 rounded-2xl"
+              style={{
+                background: "var(--primary)",
+                color: "white",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "'Caveat', cursive",
+                fontSize: "1.2rem",
+                fontWeight: 700,
+                boxShadow: "4px 4px 0 #2d2417",
+              }}
+            >
+              Close ✨
+            </button>
+          </motion.div>
+        </div>
+      )}
       
       {/* Footer */}
       <footer
@@ -866,7 +929,7 @@ export default function App() {
         <p style={{ fontFamily: "'Caveat', cursive", fontSize: "1.1rem", fontWeight: 600 }}>
           made with{" "}
           <Heart size={14} className="inline" style={{ color: "#f4a4b8", fill: "#f4a4b8", verticalAlign: "middle" }} />{" "}
-          by maya chen · 2026
+          by Arya · 2026
         </p>
         <p className="mt-1 text-sm">
           <Star size={12} className="inline" style={{ verticalAlign: "middle", marginRight: "4px" }} />
