@@ -89,6 +89,29 @@ const skillGroups = [
   },
 ];
 
+const certifications = [
+  {
+    title: "Python Programming",
+    score: "92%",
+    color: "#7dd4b0",
+  },
+  {
+    title: "Java Programming",
+    score: "93%",
+    color: "#f4a4b8",
+  },
+  {
+    title: "C++ Programming",
+    score: "83%",
+    color: "#f9c74f",
+  },
+  {
+    title: "MKCL KLiC Diploma",
+    score: "2025",
+    color: "#c5b8f5",
+  },
+];
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -119,7 +142,7 @@ export default function App() {
             Arya.ai 🦋
           </a>
           <ul className="hidden md:flex gap-8 items-center">
-            {["About", "Projects", "Skills", "Contact"].map((item) => (
+            {["About", "Projects", "Skills","Certifications", "Contact"].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -501,6 +524,64 @@ export default function App() {
                   ))}
                 </div>
               </div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications */}
+      <section id="certifications" className="py-24 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+
+          <h2
+            style={{
+              fontFamily: "'Caveat', cursive",
+              fontSize: "3rem",
+              fontWeight: 700,
+            }}
+            className="mb-2"
+          >
+            certifications 📜
+          </h2>
+
+          <Squiggle color="#c5b8f5" className="mx-auto mb-10" />
+
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {certifications.map((cert, i) => (
+              <motion.div
+                key={cert.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="p-6 rounded-3xl text-left"
+                style={{
+                  background: cert.color + "22",
+                  border: `3px solid ${cert.color}`,
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "'Caveat', cursive",
+                    fontSize: "1.8rem",
+                    fontWeight: 700,
+                  }}
+                >
+                  {cert.title}
+                </h3>
+
+                <p
+                  style={{
+                    color: "var(--primary)",
+                    fontWeight: 700,
+                    marginTop: "8px",
+                  }}
+                >
+                  {cert.score}
+                </p>
+              </motion.div>
             ))}
 
           </div>
