@@ -27,13 +27,17 @@ const projects = [
     tags: ["OpenCV", "SQLite", "Flask", "Face Recognition"],
     color: "#7dd4b0",
     emoji: "👤🔐",
+    github: "https://github.com/AryaBhongade/face-recognition-login-system",
+    demo: "coming-soon",
   },
   {
     title: "Hand Gesture Recognition",
     desc: "Real-time hand gesture recognition using Computer Vision and webcam input.",
-    tags: ["Python", "CNN" , "Real-Time Detection"],
+    tags: ["Python", "CNN", "Real-Time Detection"],
     color: "#c5b8f5",
-    emoji: "🖐️🤖",
+    emoji: "🫰🤖",
+    github: "https://github.com/AryaBhongade/hand-gesture-recognition",
+    demo: "coming-soon",
   },
   {
     title: "Color Detection System",
@@ -41,6 +45,8 @@ const projects = [
     tags: ["OpenCV", "Color Detection", "HSV"],
     color: "#f4a4b8",
     emoji: "🎨",
+    github: "https://github.com/AryaBhongade/color-detection-system",
+    demo: "coming-soon",
   }
 ];
 
@@ -64,6 +70,9 @@ export default function App() {
   const [sent, setSent] = useState(false);
 
   const [showResumeModal, setShowResumeModal] = useState(false);
+
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [showProjectModal, setShowProjectModal] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -389,13 +398,22 @@ export default function App() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href="#"
+                <button
+                  onClick={() => {
+                    setSelectedProject(project);
+                    setShowProjectModal(true);
+                  }}
                   className="inline-flex items-center gap-1 text-sm hover:gap-2 transition-all"
-                  style={{ color: "var(--primary)", fontWeight: 700 }}
+                  style={{
+                    color: "var(--primary)",
+                    fontWeight: 700,
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
                 >
                   View project <ExternalLink size={14} />
-                </a>
+                </button>
               </motion.div>
             ))}
           </div>
@@ -573,7 +591,7 @@ export default function App() {
                 color: "var(--muted-foreground)",
               }}
             >
-              Download my latest resume
+              Download my latest resume 🎀
             </p>
 
             <a
@@ -610,6 +628,105 @@ export default function App() {
         </div>
       )}
 
+      {showProjectModal && selectedProject && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50"
+          style={{
+            background: "rgba(0,0,0,0.35)",
+          }}
+          onClick={() => setShowProjectModal(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            onClick={(e) => e.stopPropagation()}
+            className="p-8 rounded-3xl text-center max-w-sm w-full mx-4"
+            style={{
+              background: "var(--card)",
+              border: "3px solid var(--border)",
+              boxShadow: "6px 6px 0 var(--border)",
+            }}
+          >
+            <div style={{ fontSize: "2.5rem" }}>
+              {selectedProject.emoji}
+            </div>
+
+            <h2
+              style={{
+                fontFamily: "'Caveat', cursive",
+                fontSize: "2rem",
+                fontWeight: 700,
+              }}
+            >
+              {selectedProject.title}
+            </h2>
+
+            <p
+              className="mt-3 mb-6"
+              style={{
+                color: "var(--muted-foreground)",
+              }}
+            >
+              Choose an option ✨
+            </p>
+
+            <div className="flex flex-col gap-3">
+
+              <a
+                href={selectedProject.github || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-2xl"
+                style={{
+                  background: "var(--primary)",
+                  color: "white",
+                  textDecoration: "none",
+                  fontFamily: "'Caveat', cursive",
+                  fontSize: "1.3rem",
+                  fontWeight: 700,
+                  boxShadow: "4px 4px 0 #2d2417",
+                }}
+              >
+                GitHub 💻
+              </a>
+
+              <a
+                href={selectedProject.demo || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-2xl"
+                style={{
+                  background: "var(--card)",
+                  border: "2.5px dashed var(--border)",
+                  textDecoration: "none",
+                  color: "var(--foreground)",
+                  fontFamily: "'Caveat', cursive",
+                  fontSize: "1.3rem",
+                  fontWeight: 700,
+                }}
+              >
+                Demo Video 🎥
+              </a>
+
+            </div>
+
+            <button
+              onClick={() => setShowProjectModal(false)}
+              className="block mx-auto mt-5"
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "'Caveat', cursive",
+                fontSize: "1.1rem",
+              }}
+            >
+              Close ✨
+            </button>
+          </motion.div>
+        </div>
+      )}
+      
       {/* Footer */}
       <footer
         className="py-8 text-center border-t border-border"
