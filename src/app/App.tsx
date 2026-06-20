@@ -231,7 +231,7 @@ export default function App() {
           <div className="mb-4 flex items-center justify-center gap-3">
             <Squiggle color="#e8845a" />
             <span style={{ color: "var(--primary)", fontFamily: "'Caveat', cursive", fontSize: "1.1rem", fontWeight: 600 }}>
-              hello, i'm
+              Hello, I'm
             </span>
             <Squiggle color="#e8845a" />
           </div>
@@ -247,9 +247,9 @@ export default function App() {
             style={{ fontSize: "1.15rem", color: "var(--muted-foreground)", lineHeight: 1.7 }}
             className="mb-10 max-w-lg mx-auto"
           >
-            an AI Engineering student passionate about Computer Vision & AI applications 🤖{" "}
-            <span style={{ color: "var(--primary)", fontWeight: 700 }}>passionate</span>{" "}
-            Computer Vision & AI applications 🤖
+            An AI Engineering student passionate about  {" "}
+            <span style={{ color: "var(--primary)", fontWeight: 700 }}>Computer Vision & AI applications 𖠌.</span>{" "}
+            From pixels to predictions—exploring the world of AI ⋆
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -361,13 +361,13 @@ export default function App() {
               style={{ fontFamily: "'Caveat', cursive", fontSize: "3rem", fontWeight: 700, color: "var(--foreground)" }}
               className="mb-2"
             >
-              about me 𖹭
+              About Me 𖹭
             </h2>
             <Squiggle color="#7dd4b0" className="mb-6" />
             <p style={{ lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1rem" }}>
               I am a B.Tech Artificial Intelligence student passionate about Computer Vision and AI-powered applications. 
               I enjoy building practical projects using Python, OpenCV, and Deep Learning while continuously expanding my skills 
-              in modern software development. I believe great software should feel like a warm hug 🤗
+              in modern software development. I believe great software should feel like a warm hug 🤗.
             </p>
             <p style={{ lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1.5rem" }}>
               When I'm not coding, you'll find me sketching UI ideas in my bullet journal, tending to
@@ -375,7 +375,7 @@ export default function App() {
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
-              {["Open to work ✨", "Remote-friendly 🌍"].map((badge) => (
+              {["Open to work ✨", "Onsite 🌍", "Hybrid 🔁"].map((badge) => (
                 <span
                   key={badge}
                   className="px-4 py-2 rounded-full text-sm"
@@ -402,11 +402,11 @@ export default function App() {
               style={{ fontFamily: "'Caveat', cursive", fontSize: "3rem", fontWeight: 700 }}
               className="mb-2"
             >
-              my projects ʚɞ
+              My Projects ʚɞ
             </h2>
             <Squiggle color="#c5b8f5" className="mx-auto" />
             <p className="mt-4" style={{ color: "var(--muted-foreground)" }}>
-              things i've built with love (and too much coffee)
+              Things i've built with love 🤍 (and too much coffee☕)
             </p>
           </div>
 
@@ -484,7 +484,7 @@ export default function App() {
             style={{ fontFamily: "'Caveat', cursive", fontSize: "3rem", fontWeight: 700 }}
             className="mb-2"
           >
-            skills & tools 🎨
+            Skills & Tools 🎨
           </h2>
           <Squiggle color="#f4a4b8" className="mx-auto mb-10" />
 
@@ -544,7 +544,7 @@ export default function App() {
             }}
             className="mb-2"
           >
-            certifications 📜
+            Certifications 📜
           </h2>
 
           <Squiggle color="#c5b8f5" className="mx-auto mb-10" />
@@ -715,7 +715,7 @@ export default function App() {
                 fontWeight: 700,
               }}
             >
-              Resume 📄
+              Resume ✧
             </h2>
 
             <p
@@ -724,7 +724,7 @@ export default function App() {
                 color: "var(--muted-foreground)",
               }}
             >
-              Download my latest resume 🎀
+              Download my latest Resume 🎀
             </p>
 
             <a
