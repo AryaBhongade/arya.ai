@@ -22,59 +22,38 @@ const Star5 = ({ color = "#f9c74f", size = 20 }: { color?: string; size?: number
 
 const projects = [
   {
-    title: "Pixel Garden",
-    desc: "A delightful app for tracking your houseplants, with watering reminders and growth logs.",
-    tags: ["React", "Node.js", "MongoDB"],
+    title: "Face Recognition Login System",
+    desc: "A secure authentication system that uses facial recognition for user registration and login.",
+    tags: ["OpenCV", "SQLite", "Flask", "Face Recognition"],
     color: "#7dd4b0",
-    emoji: "🌱",
+    emoji: "👤🔐",
   },
   {
-    title: "Dreamboard",
-    desc: "A mood board & vision board creator with drag-and-drop stickers and pastel palettes.",
-    tags: ["TypeScript", "Canvas API"],
+    title: "Hand Gesture Recognition",
+    desc: "Real-time hand gesture recognition using Computer Vision and webcam input.",
+    tags: ["Python", "MediaPipe" , "Real-Time Detection"],
     color: "#c5b8f5",
-    emoji: "✨",
+    emoji: "🖐️🤖",
   },
   {
-    title: "Cozy Recipe Box",
-    desc: "A personal recipe manager with cute card layouts and ingredient scaling.",
-    tags: ["React", "Supabase", "Tailwind"],
+    title: "Color Detection System",
+    desc: "Detects and identifies colors in real time using OpenCV image processing.",
+    tags: ["OpenCV", "Color Detection", "HSV"],
     color: "#f4a4b8",
-    emoji: "🍰",
-  },
-  {
-    title: "Chirp Chat",
-    desc: "A small-scale realtime messaging app with bird-themed stickers and emoji reactions.",
-    tags: ["Socket.io", "Express", "React"],
-    color: "#f9c74f",
-    emoji: "🐦",
-  },
-  {
-    title: "Mini Habit Tracker",
-    desc: "Track tiny daily habits with streak stars and encouraging doodle mascots.",
-    tags: ["React Native", "AsyncStorage"],
-    color: "#e8845a",
-    emoji: "⭐",
-  },
-  {
-    title: "Stargazer",
-    desc: "An interactive constellation viewer with hand-drawn star maps and lore cards.",
-    tags: ["D3.js", "Three.js"],
-    color: "#7dd4b0",
-    emoji: "🌙",
-  },
+    emoji: "🎨",
+  }
 ];
 
 const skills = [
-  { name: "React", color: "#c5b8f5" },
-  { name: "TypeScript", color: "#7dd4b0" },
-  { name: "Node.js", color: "#f9c74f" },
+  { name: "Python", color: "#c5b8f5" },
+  { name: "OpenCV", color: "#7dd4b0" },
+  { name: "NumPy", color: "#f9c74f" },
+  { name: "TensorFlow", color: "#f4a4b8" },
+  { name: "FastAPI", color: "#e8845a" },
+  { name: "Deep Learning", color: "#c5b8f5" },
+  { name: "Computer Vision", color: "#7dd4b0" },
+  { name: "React", color: "#f9c74f" },
   { name: "Tailwind CSS", color: "#f4a4b8" },
-  { name: "Figma", color: "#e8845a" },
-  { name: "GraphQL", color: "#c5b8f5" },
-  { name: "PostgreSQL", color: "#7dd4b0" },
-  { name: "Next.js", color: "#f9c74f" },
-  { name: "Three.js", color: "#f4a4b8" },
   { name: "Git", color: "#e8845a" },
 ];
 
@@ -100,7 +79,7 @@ export default function App() {
             href="#hero"
             style={{ fontFamily: "'Caveat', cursive", fontSize: "1.6rem", color: "var(--primary)", fontWeight: 700 }}
           >
-            maya.dev ✏️
+            Arya.dev 🦋
           </a>
           <ul className="hidden md:flex gap-8 items-center">
             {["About", "Projects", "Skills", "Contact"].map((item) => (
@@ -199,16 +178,16 @@ export default function App() {
             style={{ fontFamily: "'Caveat', cursive", fontSize: "clamp(3rem, 8vw, 5.5rem)", fontWeight: 700, lineHeight: 1.1, color: "var(--foreground)" }}
             className="mb-5"
           >
-            Maya Chen
+            Arya Bhongade
           </h1>
 
           <p
             style={{ fontSize: "1.15rem", color: "var(--muted-foreground)", lineHeight: 1.7 }}
             className="mb-10 max-w-lg mx-auto"
           >
-            a full-stack developer who loves crafting{" "}
-            <span style={{ color: "var(--primary)", fontWeight: 700 }}>cute & functional</span>{" "}
-            digital experiences 🎀
+            an AI Engineering student passionate about Computer Vision & AI applications 🤖{" "}
+            <span style={{ color: "var(--primary)", fontWeight: 700 }}>passionate</span>{" "}
+            Computer Vision & AI applications 🤖
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -243,7 +222,7 @@ export default function App() {
                 display: "inline-block",
               }}
             >
-              Say hi! 👋
+              Let's Connect 👋
             </motion.a>
           </div>
         </motion.div>
@@ -304,9 +283,9 @@ export default function App() {
             </h2>
             <Squiggle color="#7dd4b0" className="mb-6" />
             <p style={{ lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1rem" }}>
-              Hi there! I'm a full-stack developer based in San Francisco with 4+ years of experience
-              building web apps that are both beautiful and functional. I believe great software should
-              feel like a warm hug 🤗
+              I am a B.Tech Artificial Intelligence student passionate about Computer Vision and AI-powered applications. 
+              I enjoy building practical projects using Python, OpenCV, and Deep Learning while continuously expanding my skills 
+              in modern software development. I believe great software should feel like a warm hug 🤗
             </p>
             <p style={{ lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1.5rem" }}>
               When I'm not coding, you'll find me sketching UI ideas in my bullet journal, tending to
@@ -505,99 +484,91 @@ export default function App() {
           </h2>
           <Squiggle color="#e8845a" className="mx-auto mb-4" />
           <p className="mb-10" style={{ color: "var(--muted-foreground)" }}>
-            Have a project in mind, or just want to say hi? My inbox is always open ✨
+            Let's connect! Feel free to reach out through GitHub, LinkedIn, or email ✨
           </p>
 
-          <form onSubmit={handleSubmit} className="text-left space-y-5">
-            {[
-              { key: "name", label: "your name 🌸", type: "text", placeholder: "e.g. Jamie" },
-              { key: "email", label: "email address 📧", type: "email", placeholder: "you@example.com" },
-            ].map((field) => (
-              <div key={field.key}>
-                <label
-                  style={{ display: "block", fontFamily: "'Caveat', cursive", fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.4rem" }}
-                >
-                  {field.label}
-                </label>
-                <input
-                  type={field.type}
-                  required
-                  value={formData[field.key as keyof typeof formData]}
-                  onChange={(e) => setFormData({ ...formData, [field.key]: e.target.value })}
-                  placeholder={field.placeholder}
-                  className="w-full px-4 py-3 rounded-xl outline-none"
-                  style={{
-                    background: "var(--card)",
-                    border: "2.5px solid var(--border)",
-                    fontFamily: "'Nunito', sans-serif",
-                    transition: "border-color 0.2s",
-                  }}
-                  onFocus={(e) => (e.target.style.borderColor = "var(--primary)")}
-                  onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
-                />
-              </div>
-            ))}
+          <div className="space-y-5">
 
-            <div>
-              <label
-                style={{ display: "block", fontFamily: "'Caveat', cursive", fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.4rem" }}
-              >
-                your message ✍️
-              </label>
-              <textarea
-                required
-                rows={5}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Tell me about your project, or just say hello!"
-                className="w-full px-4 py-3 rounded-xl outline-none resize-none"
+            <motion.a
+              href="https://github.com/AryaBhongade"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.03, rotate: -1 }}
+              className="block p-5 rounded-2xl"
+              style={{
+                background: "var(--card)",
+                border: "2.5px solid var(--border)",
+                boxShadow: "4px 4px 0 #2d2417",
+                textDecoration: "none",
+                color: "var(--foreground)",
+              }}
+            >
+              <h3
                 style={{
-                  background: "var(--card)",
-                  border: "2.5px solid var(--border)",
-                  fontFamily: "'Nunito', sans-serif",
-                  transition: "border-color 0.2s",
+                  fontFamily: "'Caveat', cursive",
+                  fontSize: "1.5rem",
+                  fontWeight: 700,
                 }}
-                onFocus={(e) => (e.target.style.borderColor = "var(--primary)")}
-                onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
-              />
-            </div>
+              >
+                GitHub 💻
+              </h3>
 
-            {sent ? (
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="text-center py-4 rounded-2xl"
+              <p>github.com/AryaBhongade</p>
+            </motion.a>
+
+            <motion.a
+              href="https://www.linkedin.com/in/arya-bhongade/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.03, rotate: 1 }}
+              className="block p-5 rounded-2xl"
+              style={{
+                background: "var(--card)",
+                border: "2.5px solid var(--border)",
+                boxShadow: "4px 4px 0 #2d2417",
+                textDecoration: "none",
+                color: "var(--foreground)",
+              }}
+            >
+              <h3
                 style={{
-                  background: "#7dd4b033",
-                  border: "2.5px dashed #7dd4b0",
                   fontFamily: "'Caveat', cursive",
-                  fontSize: "1.3rem",
+                  fontSize: "1.5rem",
                   fontWeight: 700,
-                  color: "var(--foreground)",
                 }}
               >
-                yay, message sent! 🎉 I'll get back to you soon~
-              </motion.div>
-            ) : (
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.03, rotate: -1 }}
-                whileTap={{ scale: 0.97 }}
-                className="w-full py-4 rounded-2xl text-white"
+                LinkedIn 🌐
+              </h3>
+
+              <p>linkedin.com/in/arya-bhongade</p>
+            </motion.a>
+
+            <motion.a
+              href="mailto:aryabhongade15@gmail.com"
+              whileHover={{ scale: 1.03, rotate: -1 }}
+              className="block p-5 rounded-2xl"
+              style={{
+                background: "var(--card)",
+                border: "2.5px solid var(--border)",
+                boxShadow: "4px 4px 0 #2d2417",
+                textDecoration: "none",
+                color: "var(--foreground)",
+              }}
+            >
+              <h3
                 style={{
-                  background: "var(--primary)",
                   fontFamily: "'Caveat', cursive",
-                  fontSize: "1.3rem",
+                  fontSize: "1.5rem",
                   fontWeight: 700,
-                  boxShadow: "4px 4px 0 #2d2417",
-                  border: "none",
-                  cursor: "pointer",
                 }}
               >
-                send it! 🚀
-              </motion.button>
-            )}
-          </form>
+                Email 📧
+              </h3>
+
+              <p>aryabhongade15@gmail.com</p>
+            </motion.a>
+
+          </div>
         </div>
       </section>
 
