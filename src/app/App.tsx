@@ -123,6 +123,8 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [showProjectModal, setShowProjectModal] = useState(false);
 
+  const [copied, setCopied] = useState(false);
+
   const [showComingSoon, setShowComingSoon] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -660,16 +662,22 @@ export default function App() {
               <p>linkedin.com/in/arya-bhongade</p>
             </motion.a>
 
-            <motion.a
-              href="mailto:aryabhongade15@gmail.com"
+            <motion.div
               whileHover={{ scale: 1.03, rotate: -1 }}
-              className="block p-3 rounded-2xl"
+              className="block p-3 rounded-2xl cursor-pointer"
               style={{
                 background: "var(--card)",
                 border: "2.5px solid var(--border)",
                 boxShadow: "3px 3px 0 #2d2417",
-                textDecoration: "none",
                 color: "var(--foreground)",
+              }}
+              onClick={async () => {
+                await navigator.clipboard.writeText("aryabhongade15@gmail.com");
+
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+
+                window.location.href = "mailto:aryabhongade15@gmail.com";
               }}
             >
               <h3
@@ -683,7 +691,7 @@ export default function App() {
               </h3>
 
               <p>aryabhongade15@gmail.com</p>
-            </motion.a>
+            </motion.div>
 
           </div>
         </div>
@@ -919,6 +927,25 @@ export default function App() {
             </button>
           </motion.div>
         </div>
+      )}
+
+      {copied && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 px-5 py-3 rounded-2xl z-50"
+          style={{
+            background: "var(--card)",
+            border: "2.5px solid var(--border)",
+            boxShadow: "4px 4px 0 #2d2417",
+            fontFamily: "'Caveat', cursive",
+            fontSize: "1.35rem",
+            fontWeight: 700,
+          }}
+        >
+          ✨ Email copied to clipboard!
+        </motion.div>
       )}
       
       {/* Footer */}
