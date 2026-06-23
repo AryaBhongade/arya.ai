@@ -1,3 +1,8 @@
+import pythonCert from "../assets/certificates/python.png";
+import javaCert from "../assets/certificates/java.png";
+import cppCert from "../assets/certificates/cpp.png";
+import klicCert from "../assets/certificates/klic.png";
+import tensorflowCert from "../assets/certificates/tensorflow.png";
 import profileImage from "../assets/profile.jpg";
 import aboutImage from "../assets/about-image.jpg";
 import { useState } from "react";
@@ -49,6 +54,13 @@ const projects = [
     emoji: "🎨",
     github: "https://github.com/AryaBhongade/color-detection-system",
     demo: "coming-soon",
+  },
+  {
+    title: "Shimmer",
+    desc: "An upcoming project currently in development. More details, features, and live demos will be added as the project progresses.",
+    tags: ["In Progress 🚧"],
+    color: "#f9c74f",
+    emoji: "✨💎",
   }
 ];
 
@@ -92,24 +104,31 @@ const skillGroups = [
 const certifications = [
   {
     title: "Python Programming",
-    score: "92%",
     color: "#7dd4b0",
+    image: pythonCert,
+    
   },
   {
     title: "Java Programming",
-    score: "93%",
     color: "#f4a4b8",
+    image: javaCert,
   },
   {
     title: "C++ Programming",
-    score: "83%",
     color: "#f9c74f",
+    image: cppCert,
   },
   {
     title: "MKCL KLiC Diploma",
-    score: "2025",
     color: "#c5b8f5",
+    image: klicCert,
   },
+  {
+    title: "TensorFlow (GeeksforGeeks)",
+    color: "#03cafc",
+    image: tensorflowCert,
+  },
+
 ];
 
 export default function App() {
@@ -125,6 +144,8 @@ export default function App() {
 
   const [copied, setCopied] = useState(false);
 
+  const [selectedCertificate, setSelectedCertificate] = useState<any>(null);
+  const [zoomed, setZoomed] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -432,6 +453,22 @@ export default function App() {
                   cursor: "pointer",
                 }}
               >
+                {project.title === "Shimmer" && (
+                  <div
+                    className="absolute -top-3 -right-3 px-3 py-1 rounded-full"
+                    style={{
+                      background: "#f9c74f",
+                      color: "#2d2417",
+                      fontSize: "0.75rem",
+                      fontWeight: 700,
+                      boxShadow: "3px 3px 0 #2d2417",
+                      transform: "rotate(8deg)",
+                      zIndex: 10,
+                    }}
+                  >
+                    Upcoming Project ۶۟ৎ
+                  </div>
+                )}
                 <div
                   className="text-3xl mb-4 w-12 h-12 rounded-xl flex items-center justify-center"
                   style={{ background: project.color + "33" }}
@@ -551,16 +588,17 @@ export default function App() {
 
           <Squiggle color="#c5b8f5" className="mx-auto mb-10" />
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
 
             {certifications.map((cert, i) => (
               <motion.div
                 key={cert.title}
+                onClick={() => setSelectedCertificate(cert)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="p-6 rounded-3xl text-left"
+                className="p-4 rounded-3xl text-center min-w-[220px]"
                 style={{
                   background: cert.color + "22",
                   border: `3px solid ${cert.color}`,
@@ -569,22 +607,13 @@ export default function App() {
                 <h3
                   style={{
                     fontFamily: "'Caveat', cursive",
-                    fontSize: "1.8rem",
+                    fontSize: "1.7rem",
                     fontWeight: 700,
+                    cursor: "pointer",
                   }}
                 >
                   {cert.title}
                 </h3>
-
-                <p
-                  style={{
-                    color: "var(--primary)",
-                    fontWeight: 700,
-                    marginTop: "8px",
-                  }}
-                >
-                  {cert.score}
-                </p>
               </motion.div>
             ))}
 
@@ -948,6 +977,91 @@ export default function App() {
         </motion.div>
       )}
       
+      {selectedCertificate && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50"
+          style={{ background: "rgba(0,0,0,0.4)" }}
+          onClick={() => setSelectedCertificate(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative p-6 rounded-3xl max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto"
+            style={{
+              background: "rgba(35, 25, 55, 0.95)",
+              border: "3px solid var(--border)",
+              boxShadow: "0 0 25px rgba(0,0,0,0.25)",
+            }}
+          >
+            <h2
+              className="mb-4 text-center"
+              style={{
+                fontFamily: "'Caveat', cursive",
+                fontSize: "2rem",
+                fontWeight: 700,
+                color: "white",
+              }}
+            >
+              {selectedCertificate.title}
+            </h2>
+
+            <button
+              onClick={() => setSelectedCertificate(null)}
+              className="absolute top-4 right-4"
+              style={{
+                background: "var(--card)",
+                border: "2px solid var(--border)",
+                width: "42px",
+                height: "42px",
+                borderRadius: "50%",
+                cursor: "pointer",
+                fontSize: "1.2rem",
+                fontWeight: 700,
+                boxShadow: "2px 2px 0 #2d2417",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              ✕
+            </button>
+
+            <div className="mt-4 mb-6 text-center">
+              <a
+                href={selectedCertificate.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-2xl"
+                style={{
+                  background: "var(--card)",
+                  border: "2px solid var(--border)",
+                  textDecoration: "none",
+                  color: "var(--foreground)",
+                  fontFamily: "'Caveat', cursive",
+                  fontSize: "1.2rem",
+                  fontWeight: 700,
+                  boxShadow: "2px 2px 0 #2d2417",
+                }}
+              >
+                Open Full Size ↗
+              </a>
+            </div>
+
+            <img
+              src={selectedCertificate.image}
+              alt={selectedCertificate.title}
+              onClick={() => setZoomed(!zoomed)}
+              className={`rounded-2xl cursor-zoom-in transition-all duration-300 ${
+                zoomed
+                  ? "w-auto max-w-none scale-150"
+                  : "w-full max-h-[70vh] object-contain"
+              }`}
+            />
+          </motion.div>
+        </div>
+      )}
+
       {/* Footer */}
       <footer
         className="py-8 text-center border-t border-border"
